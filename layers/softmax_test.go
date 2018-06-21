@@ -3,7 +3,7 @@ package layers
 import (
 	"testing"
 
-	"github.com/Rompei/mat"
+	"github.com/lon9/mat"
 )
 
 func TestSoftmax(t *testing.T) {

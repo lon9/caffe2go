@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/Rompei/caffe2go/layers"
+	"github.com/lon9/caffe2go/layers"
 )
 
 // SetupConvolution setups ConvolutionLayer from caffe model.

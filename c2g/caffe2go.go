@@ -9,10 +9,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/Rompei/caffe2go/caffe"
-	"github.com/Rompei/caffe2go/layers"
-	"github.com/Rompei/caffe2go/network"
 	"github.com/golang/protobuf/proto"
+	"github.com/lon9/caffe2go/caffe"
+	"github.com/lon9/caffe2go/layers"
+	"github.com/lon9/caffe2go/network"
 	"github.com/nfnt/resize"
 )
 

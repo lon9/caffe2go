@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Rompei/caffe2go/c2g"
+	"github.com/lon9/caffe2go/c2g"
 )
 
 func loadMeans(meanFile string) ([]float32, error) {

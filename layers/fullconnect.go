@@ -1,7 +1,7 @@
 package layers
 
 import (
-	"github.com/gonum/matrix/mat64"
+	"gonum.org/v1/gonum/mat"
 )
 
 // FullconnectLayer is a layer.
@@ -41,9 +41,9 @@ func (f *FullconnectLayer) Forward(input [][][]float32) ([][][]float32, error) {
 		}
 	}
 
-	inMat := mat64.NewDense(f.Width, 1, in)
+	inMat := mat.NewDense(f.Width, 1, in)
 	weights := ConvertMatrix(f.Weights)
-	var out mat64.Dense
+	var out mat.Dense
 	out.Mul(weights, inMat)
 
 	output := make([][][]float32, f.Height)
