@@ -30,5 +30,5 @@ func (b *BaseLayer) GetType() string {
 
 // Forward is base function of Forward.
 func (b *BaseLayer) Forward(input [][][]float32) ([][][]float32, error) {
-	return input, errors.New("Forward is not implemented.")
+	return input, errors.New("Forward is not implemented")
 }

@@ -3,7 +3,7 @@ package c2g
 import (
 	"fmt"
 
-	"github.com/Rompei/caffe2go/caffe"
+	"github.com/lon9/caffe2go/caffe"
 )
 
 func showV1Layers(layers []*caffe.V1LayerParameter) {

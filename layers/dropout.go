@@ -1,6 +1,6 @@
 package layers
 
-import "github.com/gonum/matrix/mat64"
+import "gonum.org/v1/gonum/mat"
 
 // DropoutLayer is layer of Dropout.
 type DropoutLayer struct {
@@ -23,7 +23,7 @@ func (d *DropoutLayer) Forward(input [][][]float32) ([][][]float32, error) {
 	for i := range input {
 		go func(idx int) {
 			t := ConvertMatrix(input[idx])
-			var out mat64.Dense
+			var out mat.Dense
 			out.Apply(func(i, j int, v float64) float64 {
 				return v * r
 			}, t)

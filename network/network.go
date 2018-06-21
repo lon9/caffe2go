@@ -3,7 +3,7 @@ package network
 import (
 	"fmt"
 
-	"github.com/Rompei/caffe2go/layers"
+	"github.com/lon9/caffe2go/layers"
 )
 
 // Network have netword definition.

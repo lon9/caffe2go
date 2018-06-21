@@ -1,9 +1,9 @@
 package layers
 
 import (
-	"github.com/Rompei/exmat"
-	"github.com/Rompei/mat"
-	"github.com/gonum/matrix/mat64"
+	"github.com/lon9/exmat"
+	mymat "github.com/lon9/mat"
+	"gonum.org/v1/gonum/mat"
 )
 
 // ConvolutionLayer is layer of Convolution.
@@ -74,7 +74,7 @@ func (conv *ConvolutionLayer) Forward(input [][][]float32) ([][][]float32, error
 	}
 	close(doneCh)
 	kernelMatrix := ConvertMatrix(kernels)
-	var out mat64.Dense
+	var out mat.Dense
 	out.Mul(in, kernelMatrix.T())
 	output := make([][][]float32, conv.NOutput)
 	rows := (len(input[0])-conv.KernelSize)/conv.Stride + 1
@@ -89,7 +89,7 @@ func (conv *ConvolutionLayer) Forward(input [][][]float32) ([][][]float32, error
 			for j := 0; j < c; j++ {
 				part[0][j] = float32(outTransposed.At(i, j))
 			}
-			res, err := mat.NewMatrix(part).Reshape(uint(rows), uint(cols))
+			res, err := mymat.NewMatrix(part).Reshape(uint(rows), uint(cols))
 			if err != nil {
 				errCh <- err
 				return
@@ -110,7 +110,7 @@ func (conv *ConvolutionLayer) Forward(input [][][]float32) ([][][]float32, error
 		for i := range output {
 			go func(idx int) {
 				m := ConvertMatrix(output[idx])
-				var res mat64.Dense
+				var res mat.Dense
 				res.Apply(func(i, j int, v float64) float64 {
 					return v + float64(conv.Bias[idx])
 				}, m)

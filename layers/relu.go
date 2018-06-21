@@ -3,7 +3,7 @@ package layers
 import (
 	"math"
 
-	"github.com/gonum/matrix/mat64"
+	"gonum.org/v1/gonum/mat"
 )
 
 // ReLULayer is layer of ReLU.
@@ -26,7 +26,7 @@ func (r *ReLULayer) Forward(input [][][]float32) ([][][]float32, error) {
 	for i := range input {
 		go func(idx int) {
 			t := ConvertMatrix(input[idx])
-			var out mat64.Dense
+			var out mat.Dense
 			out.Apply(func(i, j int, v float64) float64 {
 				return math.Max(0, v)
 			}, t)

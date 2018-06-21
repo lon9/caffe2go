@@ -1,6 +1,6 @@
 package layers
 
-import "github.com/Rompei/exmat"
+import "github.com/lon9/exmat"
 
 // PoolingLayer is layer of Pooling.
 type PoolingLayer struct {
@@ -37,7 +37,7 @@ func (pool *PoolingLayer) Forward(input [][][]float32) ([][][]float32, error) {
 			in := exmat.NewExMat(rows, cols, t)
 			var out exmat.ExMat
 			out.Pooling(pool.KernelSize, pool.Stride, exmat.Max, in)
-			output[i] = ConvertMat64(out)
+			output[i] = ConvertMat64(&out)
 			doneCh <- true
 		}(i, doneCh)
 	}

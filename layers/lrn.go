@@ -3,7 +3,7 @@ package layers
 import (
 	"math"
 
-	"github.com/gonum/matrix/mat64"
+	"gonum.org/v1/gonum/mat"
 )
 
 // LRN is Local Response Normalization.
@@ -35,7 +35,7 @@ func (lrn *LRN) Forward(input [][][]float32) ([][][]float32, error) {
 			s := int(math.Max(0.0, float64(idx-lrn.N/2)))
 			e := int(math.Min(float64(len(input)-1), float64(idx+lrn.N/2)))
 			o := ConvertMatrix(input[idx])
-			var res mat64.Dense
+			var res mat.Dense
 			res.Apply(func(i, j int, v float64) float64 {
 				sum := 0.0
 				for l := s; l < e; l++ {
