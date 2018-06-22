@@ -1,4 +1,4 @@
-package c2g
+package caffe
 
 import (
 	"errors"

@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/lon9/caffe2go/c2g"
+	"github.com/lon9/caffe2go/caffe"
 )
 
 func loadMeans(meanFile string) ([]float32, error) {
@@ -75,7 +75,7 @@ func main() {
 		}
 	}
 
-	caffe2go, err := c2g.NewCaffe2Go(modelPath)
+	caffe2go, err := caffe.NewCaffe2Go(modelPath)
 	if err != nil {
 		log.Fatalln(err)
 	}

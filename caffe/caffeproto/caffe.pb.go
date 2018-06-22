@@ -56,7 +56,7 @@ It has these top-level messages:
 	V0LayerParameter
 	PReLUParameter
 */
-package caffe
+package caffeproto
 
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"

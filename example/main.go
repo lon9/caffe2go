@@ -5,11 +5,11 @@ import (
 	_ "image/jpeg"
 	_ "image/png"
 
-	"github.com/lon9/caffe2go/c2g"
+	"github.com/lon9/caffe2go/caffe"
 )
 
 func main() {
-	caffe2go, err := c2g.NewCaffe2Go("lenet.caffemodel")
+	caffe2go, err := caffe.NewCaffe2Go("lenet.caffemodel")
 	if err != nil {
 		panic(err)
 	}
